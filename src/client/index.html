@@ -3,15 +3,103 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-	<!-- Import a css -->
-	<link rel="stylesheet" href="/static/css/style.css" />
+	<link rel="shortcut icon" href="assets/img/heart.png" />
+	<link rel="stylesheet" href="/assets/css/style.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Work</title>
+	<title>HeartGuard</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
 </head>
 
 <body>
-	<script type="module" src="/static/js/main.js"></script>
+	<header>
+		<h1 class="mainTitle">
+			<a href="/"><span class="blueSpan">Heart</span><span class="redSpan">Guard</span></a>
+		</h1>
+	</header>
+	<section class="mainSec">
+		<article class="formArticle">
+			<h2 class="secondTitle">
+				<span class="blueSpan">Fill the</span> <span class="redSpan">form</span>
+			</h2>
+			<form action="/results.html">
+				<div class="formChild">
+					<label for="age">Age:</label>
+					<input type="text" id="age" name="age" placeholder="24">
+				</div>
+				<div class="formChild">
+					<label for="sex">Sex:</label>
+					<select name="sex" id="sex">
+						<option value="saab">Female</option>
+						<option value="volvo">Male</option>
+					</select>
+				</div>
+				<div class="formChild">
+					<label for="cholesterol">Cholesterol<span class="redSpan">*</span>:</label>
+					<input type="text" id="cholesterol" name="cholesterol" placeholder="208">
+				</div>
+				<div class="formChild">
+					<label for="bloodPressure">Blood Pressure:</label>
+					<input type="text" id="bloodPressure" name="bloodPressure" placeholder="158/88">
+				</div>
+				<div class="formChild">
+					<label for="heartRate">Heart Rate<span class="redSpan">**</span>:</label>
+					<input type="text" id="heartRate" name="heartRate" placeholder="72">
+				</div>
+				<div class="formChild">
+					<label for="exercise">Exercise Hours/Week:</label>
+					<input type="text" id="exercise" name="exercise" placeholder="4">
+				</div>
+				<div class="formChild">
+					<label for="sedentary">Sedentary Hours/Day:</label>
+					<input type="text" id="sedentary" name="sedentary" placeholder="8">
+				</div>
+				<div class="formChild">
+					<label for="bmi">BMI<span class="redSpan">***</span>:</label>
+					<input type="text" id="bmi" name="bmi" placeholder="31.25">
+				</div>
+				<div class="formChild">
+					<label for="activity">Physical Activity Days/Week:</label>
+					<input type="text" id="activity" name="activity" placeholder="3">
+				</div>
+				<div class="formChild">
+					<label for="sleep">Sleep Hours/Day:</label>
+					<input type="sleep" id="sleep" name="sleep" placeholder="8">
+				</div>
+				<div class="formChildCheck">
+					<input type="checkbox" id="diabetes" name="diabetes" value="1" >
+					<label for="diabetes"> Diabetes</label><br>
+				</div>
+				<div class="formChildCheck">
+					<input type="checkbox" id="family" name="family" value="1">
+					<label for="family"> Family History</label><br>
+				</div>
+				<div class="formChildCheck">
+					<input type="checkbox" id="smoking" name="smoking" value="1">
+					<label for="smoking"> Smoking</label>
+				</div>
+				<div class="formChildCheck">
+					<input type="checkbox" id="alcohol" name="alcohol" value="1">
+					<label for="alcohol"> Alcohol</label>
+				</div>
+				<div class="formChildCheck">
+					<input type="checkbox" id="previous" name="previous" value="1">
+					<label for="previous"> Previous Heart Problems</label>
+				</div>
+				<div class="formChild">
+					<input type="submit" value="Submit">
+				</div>
+			</form>
+		</article>
+		<article class="imgArticle">
+			<img src="assets/img/heart.png" alt="heart">
+		</article>
+	</section>
+	<footer>
+		<p><span class="redSpan">*</span> Cholesterol measured in mg/dL.</p>
+		<p><span class="redSpan">**</span> Heart Rate measured in bpm.</p>
+		<p><span class="redSpan">***</span> For BMI divide weight in kilograms (kg) by height in metres (m) squared. (<a href="https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/" target="_blank">online calculator</a>)</p>
+	</footer>
+	<script type="module" src="/assets/js/main.js"></script>
 </body>
 
 </html>
