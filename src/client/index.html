@@ -29,61 +29,34 @@
 				<div class="formChild">
 					<label for="sex">Sex:</label>
 					<select name="sex" id="sex">
-						<option value="saab">Female</option>
-						<option value="volvo">Male</option>
+						<option value="0">Female</option>
+						<option value="1">Male</option>
 					</select>
 				</div>
 				<div class="formChild">
-					<label for="cholesterol">Cholesterol<span class="redSpan">*</span>:</label>
-					<input type="text" id="cholesterol" name="cholesterol" placeholder="208">
+					<label for="chestPain">Chest Pain Type<span class="redSpan">*</span>:</label>
+					<select name="chestPain" id="chestPain">
+						<option value="3">Non-anginal pain</option>
+						<option value="1">Typical angina</option>
+						<option value="2">Atypical angina</option>
+						<option value="4">Asymptomatic</option>
+					</select>
 				</div>
 				<div class="formChild">
-					<label for="bloodPressure">Blood Pressure:</label>
-					<input type="text" id="bloodPressure" name="bloodPressure" placeholder="158/88">
+					<label for="thalassemia">Thalassemia<span class="redSpan">**</span>:</label>
+					<select name="thalassemia" id="thalassemia">
+						<option value="2">Normal blood flow</option>
+						<option value="1">Fixed defect</option>
+						<option value="3">Reversible defect</option>
+					</select>
 				</div>
 				<div class="formChild">
-					<label for="heartRate">Heart Rate<span class="redSpan">**</span>:</label>
-					<input type="text" id="heartRate" name="heartRate" placeholder="72">
-				</div>
-				<div class="formChild">
-					<label for="exercise">Exercise Hours/Week:</label>
-					<input type="text" id="exercise" name="exercise" placeholder="4">
-				</div>
-				<div class="formChild">
-					<label for="sedentary">Sedentary Hours/Day:</label>
-					<input type="text" id="sedentary" name="sedentary" placeholder="8">
-				</div>
-				<div class="formChild">
-					<label for="bmi">BMI<span class="redSpan">***</span>:</label>
-					<input type="text" id="bmi" name="bmi" placeholder="31.25">
-				</div>
-				<div class="formChild">
-					<label for="activity">Physical Activity Days/Week:</label>
-					<input type="text" id="activity" name="activity" placeholder="3">
-				</div>
-				<div class="formChild">
-					<label for="sleep">Sleep Hours/Day:</label>
-					<input type="sleep" id="sleep" name="sleep" placeholder="8">
+					<label for="heartRate">Maximum Heart Rate while exercising:</label>
+					<input type="text" id="heartRate" name="heartRate" placeholder="150">
 				</div>
 				<div class="formChildCheck">
-					<input type="checkbox" id="diabetes" name="diabetes" value="1">
-					<label for="diabetes"> Diabetes</label><br>
-				</div>
-				<div class="formChildCheck">
-					<input type="checkbox" id="family" name="family" value="1">
-					<label for="family"> Family History</label><br>
-				</div>
-				<div class="formChildCheck">
-					<input type="checkbox" id="smoking" name="smoking" value="1">
-					<label for="smoking"> Smoking</label>
-				</div>
-				<div class="formChildCheck">
-					<input type="checkbox" id="alcohol" name="alcohol" value="1">
-					<label for="alcohol"> Alcohol</label>
-				</div>
-				<div class="formChildCheck">
-					<input type="checkbox" id="previous" name="previous" value="1">
-					<label for="previous"> Previous Heart Problems</label>
+					<input type="checkbox" id="exercise" name="exercise" value="1">
+					<label for="exercise"> Exercise Induced Angina</label>
 				</div>
 				<div class="formChild">
 					<input type="submit" value="Submit">
@@ -95,11 +68,11 @@
 		</article>
 	</section>
 	<footer>
-		<p><span class="redSpan">*</span> Cholesterol measured in mg/dL.</p>
-		<p><span class="redSpan">**</span> Heart Rate measured in bpm.</p>
-		<p><span class="redSpan">***</span> For BMI divide weight in kilograms (kg) by height in metres (m) squared. (<a
-				href="https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/" target="_blank">online
-				calculator</a>)</p>
+		<p><span class="redSpan">*</span> <span class="blueSpan"><b>Typical (classic) angina chest pain</b></span> consists of (1) Substernal chest pain or discomfort that is (2) Provoked by exertion or emotional stress and (3) relieved by rest or nitroglycerine (or both).<br><span class="blueSpan"><b>Atypical (probable) angina chest pain</b></span> applies when 2 out of 3 criteria of classic angina are present.<br><span class="blueSpan"><b>Asymptomatic angina</b></span> is a condition of reduced oxygen-rich blood flow to the heart that occurs in the absence of chest discomfort or other symptoms of angina.<br><span class="blueSpan"><b>Non-anginal chest pain</b></span> applies in the absence of the criteria. (References: <a
+			href="https://www.timeofcare.com/typical-vs-atypical-chest-pain/#:~:text=Typical%20(classic)%20angina%20chest%20pain,of%20classic%20angina%20are%20present." target="_blank">TimeOfCare</a> and <a
+			href="https://www.ncbi.nlm.nih.gov/books/NBK536915/#:~:text=Silent%20myocardial%20ischemia%20is%20a,%2C%20nausea%2C%20diaphoresis%2C%20etc." target="_blank">National Library of Medicine</a>)</p>
+		<p><span class="redSpan">**</span> Thalassemia is a blood disorder caused when the body doesn't make enough of a protein called hemoglobin. For this application, there's three cases: Fixed defect (no blood flow in some part of the heart), reversible defect (a blood flow is observed but it's not normal) and normal blood flow.(Reference: <a
+			href="https://www.cdc.gov/ncbddd/thalassemia/index.html#:~:text=Thalassemia%20is%20an%20inherited%20(i.e.,blood%20transfusions%20and%20chelation%20therapy." target="_blank">Centers for Disease Control and Prevention</a>)</p>
 	</footer>
 	<script type="module" src="/assets/js/main.js"></script>
 </body>

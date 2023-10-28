@@ -9,13 +9,12 @@
   justify-content: center;
 }
 article{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem;
   margin: 1rem;
   padding: 1rem;
   background-color: #fff;
   font-size: 1.2rem;
+  width: 30rem;
 }
 .formArticle{
   border: 1px solid #ccc;
@@ -106,8 +105,7 @@ select{
 }
 form{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
 }
 
 input[type="checkbox"]{
@@ -126,6 +124,9 @@ input[type="submit"]:hover{
   color:#fff;
   animation: increase 1s;
 }
+footer{
+  margin-top: 2rem;
+}
 footer p{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -139,26 +140,12 @@ footer p a:hover{
   transition: 1s;
 }
 
-@media (width <= 1150px){
-  form{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 1rem;
-  }
-}
-@media (width <= 760px){
+@media (width <= 662px){
   .mainSec{
-    flex-direction: column;
+    display:inline;
   }
-  .formArticle{
-    width: 30rem;
-  }
-}
-@media (width <= 550px){
-  .mainSec{
-    flex-direction: column;
-  }
-  .formArticle{
+  article{
     width: auto;
+    min-width: 330px;
   }
 }
