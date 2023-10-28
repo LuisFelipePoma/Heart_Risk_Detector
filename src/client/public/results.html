@@ -9,6 +9,7 @@
 	<title>HeartGuard</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
 </head>
+<!-- on load funtion from javascript -->
 
 <body>
 	<header>
@@ -24,17 +25,20 @@
 			<h2 class="secondTitle" id="results">
 				<span class="redSpan">It seems there is a risk of heart attack.</span>
 			</h2>
-            <h2 class="secondTitle">
-                <span class="blueSpan">This is an AI-powered tool, it is highly recommended that users consult a doctor or healthcare professional for an accurate diagnosis.</span>
-            </h2>
-            <a href="/">Return</a>
+			<h2 class="secondTitle">
+				<span class="blueSpan">This is an AI-powered tool, it is highly recommended that users consult a doctor
+					or healthcare professional for an accurate diagnosis.</span>
+			</h2>
+			<a href="/" onclick="predict()">Return</a>
 		</article>
 		<article class="imgArticle">
 			<img src="../assets/img/heart.png" alt="heart">
 		</article>
 	</section>
 
-	<script type="module" src="../assets/js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js" defer></script>
+	<script type="module" src="../assets/js/results.js" defer></script>
 </body>
 
 </html>
