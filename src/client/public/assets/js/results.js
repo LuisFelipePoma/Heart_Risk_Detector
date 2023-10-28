@@ -1,36 +1,45 @@
 // On load function form html
 const PATH = '../../models/'
-// import * as onnx from 'https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/esm/ort.min.js'
-;(async () => {
-  console.log('Cargando modelo...')
-  // ml.load('../../models/modelo_gnb.pkl', function(model) {
-  // 	// Hacer una predicción
-  // 	var input_data = [/* tus datos de entrada */];
-  // 	var prediction = model.predict(input_data);
-  // 	console.log('Predicción:', prediction);
-  // });
-  loadModels()
-  let params = new URLSearchParams(location.search)
-  console.log(params.get('age'))
-  console.log('Modelo cargado...')
-})()
+const PARAMS_NAMES = [
+  'age',
+  'sex',
+  'chestPain',
+  'heartRate',
+  'exercise',
+  'thalassemia'
+]
 
-async function loadModels () {
+async function init () {
+  console.log('Cargando modelo...')
+
+  let params = new URLSearchParams(location.search)
+
+  let inputData = PARAMS_NAMES.map(name => {
+    const value = params.get(name)
+    return value ? parseFloat(value) : 0
+  })
+  await loadModels(inputData)
+  console.log('Modelo cargado...')
+}
+
+async function loadModels (inputData) {
   // Load the ONNX model
   try {
     const session = await ort.InferenceSession.create(PATH + 'model_gnb.onnx')
-    const inputData = [42, 1, 1, 162, 0, 2] // Wrap your input data in an array
+    // const out = session.get_outputs()
     const data = Float32Array.from(inputData)
-    const tensorA = new ort.Tensor('float32', data)
-    // feed inputs and run
-    const feeds = { a: tensorA }
-    const results = await session.run(feeds)
+    const tensor = new ort.Tensor('float32', data, [1, inputData.length])
+    // Define the correct input name based on your model's expectations
 
-    const dataC = results.c.data
-    document.write(`data of result tensor 'c': ${dataC}`)
+    // Feed inputs and run
+    const feeds = { input: tensor }
+
+    const results = await session.run(feeds, ['output_label'])
+
+    const predict = results.output_label.data
+		console.log(predict[0])
   } catch (e) {
-    alert(`failed to inference ONNX model: ${e}.`)
+    console.error(`failed to inference ONNX model: ${e}.`)
   }
 }
 
-function predict () {}
