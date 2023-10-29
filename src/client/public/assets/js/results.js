@@ -1,5 +1,7 @@
-// GLOBAL VARIABLES
+// PATH TO MODELS
 const PATH = '../../models/'
+
+// PARAMS NAMES FROM URL
 const PARAMS_NAMES = [
   'age',
   'sex',
@@ -9,28 +11,50 @@ const PARAMS_NAMES = [
   'thalassemia'
 ]
 
+// LABELS FOR PREDICTION
+const POSITIVE_PREDICT =
+  '<span class="blueSpan">It seems there is a </span><span class="redSpan">risk of heart attack.</span>'
+
+const NEGATIVE_PREDICT =
+  '<span class="blueSpan">It seems there is </span><span class="redSpan">no risk of heart attack.</span>'
+
+// MODELS PREDICTS
 const predictsModels = {
   Perceptron: null,
-  GaussianNaiveBayes: null,
+  'Naive Bayes': null,
   CNN: null
 }
 
-// On load function form html
+// FUNCTION TO SHOW THE PREDICTION
+const showPredict = e => {
+  // Remove active class
+  document.querySelectorAll('.alg').forEach(e => {
+    e.classList.remove('active')
+  })
+  // Add active class
+  e.classList.add('active')
+  // Get name model
+  const nameModel = e.innerHTML
+  const prediction = predictsModels[nameModel]
+  // Show Results
+  document.getElementById('results').innerHTML = prediction
+    ? POSITIVE_PREDICT
+    : NEGATIVE_PREDICT
+}
+
+// FUNCTION TO SHOW THE PREDICTION
 async function init () {
-  console.log('Cargando modelo...')
-
+  // Get Params from URL
   let params = new URLSearchParams(location.search)
-
+  // Get Data from URL
   let inputData = PARAMS_NAMES.map(name => {
     const value = params.get(name)
     return value ? parseFloat(value) : 0
   })
+  // Load Models and Predict
   await loadModels(inputData)
-  console.log('Modelo cargado...')
 }
-
 async function loadModels (inputData) {
-  // Load the ONNX model
   try {
     // Load Models
     const modelGNB = await ort.InferenceSession.create(PATH + 'model_gnb.onnx')
@@ -46,22 +70,23 @@ async function loadModels (inputData) {
     const tensorSklearn = new ort.Tensor('float32', data, [1, inputData.length])
     const tensorKeras = tf.tensor2d([inputData])
 
-    // Feed inputs and run
-    const feeds = { input: tensorSklearn }
-    const results = await modelGNB.run(feeds, ['output_label'])
-
     // Predict Results
+    // ----- Gaussian Naive Bayes -----
+    const results = await modelGNB.run({ input: tensorSklearn }, ['output_label'])
     const predictGNB = results.output_label.data
-    const predictPerceptron = modelPerceptron.predict(tensorKeras).dataSync()
+
+    // ----- Perceptron -----
+    const predictPerceptron = await modelPerceptron.predict(tensorKeras).dataSync()
     const resultPerceptron = predictPerceptron > 0.5 ? 1 : 0
-    const predictCNN = modelCNN.predict(tensorKeras).dataSync()
+
+    // ----- Convolutional Neural Network -----
+    const predictCNN = await modelCNN.predict(tensorKeras).dataSync()
     const resultCNN = predictCNN > 0.5 ? 1 : 0
 
     // Save Results
-    predictsModels['GaussianNaiveBayes'] = Number(predictGNB[0])
+    predictsModels['Naive Bayes'] = Number(predictGNB[0])
     predictsModels['Perceptron'] = resultPerceptron
     predictsModels['CNN'] = resultCNN
-    console.log(predictsModels)
   } catch (e) {
     console.error(`failed to load models: ${e}.`)
   }
