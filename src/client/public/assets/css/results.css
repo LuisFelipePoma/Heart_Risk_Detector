@@ -7,7 +7,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
 article{
     display: grid;
@@ -35,7 +35,7 @@ header a{
 
 .blueSpan:hover{
     color: #E93474;
-    transition: 0.5s;
+    transition: 0.3;
 }
 
 .redSpan{
@@ -45,21 +45,22 @@ header a{
 
 .redSpan:hover{
     color: #3992D5;
-    transition: 0.5s;
+    transition: 0.3;
 }
 
+
 .imgArticle{
-max-width: 30rem;
-max-height: 30rem;
-object-fit: fill;
-border-radius: 1rem;
+    max-width: 30rem;
+    max-height: 30rem;
+    object-fit: fill;
+    border-radius: 1rem;
 }
 .imgArticle img{
-width: 100%;
-height: 100%;
-object-fit: fill;
-border-radius: 1rem;
-animation: increase 1s infinite;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 1rem;
+    animation: increase 1s infinite;
 }
 
 @keyframes increase{
@@ -115,10 +116,10 @@ input[type="submit"]{
     background-color: #E93474;
     color:#fff;
     border-color:white;
-    transition: 1s;
+    transition: 0.5s;
 }
 input[type="submit"]:hover{
-    transition: 1s;
+    transition: 0.3;
     background-color:#3992D5;
     color:#fff;
     animation: increase 1s;
@@ -129,21 +130,16 @@ footer p{
 }
 footer p a{
     color: #3992D5;
-    transition: 1s;
+    transition: 0.5s;
 }
 footer p a:hover{
     color:#E93474;
-    transition: 1s;
+    transition: 0.3;
 }
 .artTitle{
     font-size: 3rem;
 }
-.formArticle{
-    border: 1px solid #ccc;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.2); 
-}
-.formArticle a{
+.retButton{
     margin-top: 0.2rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -154,13 +150,51 @@ footer p a:hover{
     text-decoration: none;
     color: white;
     text-align: center;
-    transition: 1s;
+    transition: 0.5s;
 }
-.formArticle a:hover{
+.retButton:hover{
     background-color:#3992D5;
-    transition: 1s;
+    transition: 0.3;
 }
 
+.alg:hover{
+    background-color:#E93474;
+    transition: 0.3;
+    animation: increase 0.5s;
+
+}
+
+.alg{
+    margin-top: 0.2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #fff;
+    background-color: #3992D5;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: 0.5s;
+
+}
+.algButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 30rem;
+    margin-left: 2.2em
+}
+.algButtons a{
+    flex:1;
+}
+.artTitle{
+    margin-bottom: 0px;
+}
+.advice{
+    font-size: 20px;
+}
 @media (width <= 1150px){
     form{
         display: grid;
