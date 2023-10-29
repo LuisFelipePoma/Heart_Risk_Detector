@@ -36,10 +36,17 @@ const showPredict = e => {
   // Get name model
   const nameModel = e.innerHTML
   const prediction = predictsModels[nameModel]
-  // Show Results
-  document.getElementById('results').innerHTML = prediction
-    ? POSITIVE_PREDICT
-    : NEGATIVE_PREDICT
+
+  // Get Percentage
+  let percentage = prediction > 0.5 ? prediction : 1 - prediction
+  percentage = Math.round(percentage * 10000) / 100
+
+  // Show Results (Probability "0")
+  if (prediction > 0.5) {
+    document.getElementById('results').innerHTML = `<p style="text-align: center; color: #4b4b4b;font-size: 3rem; ">${percentage} %<p>` + NEGATIVE_PREDICT
+  } else {
+    document.getElementById('results').innerHTML = `<p style="text-align: center; color: #4b4b4b;font-size: 3rem;">${percentage} %<p>` + POSITIVE_PREDICT
+  }
 }
 
 // FUNCTION TO SHOW THE PREDICTION
@@ -72,21 +79,21 @@ async function loadModels (inputData) {
 
     // Predict Results
     // ----- Gaussian Naive Bayes -----
-    const results = await modelGNB.run({ input: tensorSklearn }, ['output_label'])
-    const predictGNB = results.output_label.data
+    const results = await modelGNB.run({ input: tensorSklearn })
+    const predictGNB = results.probabilities.data
 
     // ----- Perceptron -----
-    const predictPerceptron = await modelPerceptron.predict(tensorKeras).dataSync()
-    const resultPerceptron = predictPerceptron > 0.5 ? 1 : 0
+    const predictPerceptron = await modelPerceptron
+      .predict(tensorKeras)
+      .dataSync()
 
     // ----- Convolutional Neural Network -----
     const predictCNN = await modelCNN.predict(tensorKeras).dataSync()
-    const resultCNN = predictCNN > 0.5 ? 1 : 0
 
     // Save Results
-    predictsModels['Naive Bayes'] = Number(predictGNB[0])
-    predictsModels['Perceptron'] = resultPerceptron
-    predictsModels['CNN'] = resultCNN
+    predictsModels['Perceptron'] = predictPerceptron['0']
+    predictsModels['Naive Bayes'] = predictGNB['0']
+    predictsModels['CNN'] = predictCNN['0']
   } catch (e) {
     console.error(`failed to load models: ${e}.`)
   }

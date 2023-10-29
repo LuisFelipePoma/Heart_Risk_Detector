@@ -52,6 +52,16 @@ header a {
 	transition: 0.3;
 }
 
+.graySpan {
+	color: #4b4b4b;
+	transition: 0.5s;
+}
+
+.graySpan:hover {
+	color: #ccc;
+	transition: 0.3;
+}
+
 
 .imgArticle {
 	max-width: 30rem;
@@ -221,7 +231,6 @@ footer p a:hover {
 
 .active {
 	background-color: #E93474;
-
 }
 
 @media (width <=1150px) {
