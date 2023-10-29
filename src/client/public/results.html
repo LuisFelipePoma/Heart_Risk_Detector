@@ -16,20 +16,26 @@
 		<h1 class="mainTitle">
 			<a href="/"><span class="blueSpan">Heart</span><span class="redSpan">Guard</span></a>
 		</h1>
+		<div class="algButtons">
+			<a class="alg" href="/" onclick="">Perceptron</a>
+			<a class="alg" href="/" onclick="">Naive Bayes</a>
+			<a class="alg" href="/" onclick="">CNN</a>
+		</div>
 	</header>
 	<section class="mainSec">
 		<article class="formArticle">
 			<h2 class="artTitle">
-				<span class="blueSpan">Results</span>
+				<span class="redSpan">Results</span>
 			</h2>
-			<h2 class="secondTitle" id="results">
-				<span class="redSpan">It seems there is a risk of heart attack.</span>
-			</h2>
-			<h2 class="secondTitle">
-				<span class="blueSpan">This is an AI-powered tool, it is highly recommended that users consult a doctor
-					or healthcare professional for an accurate diagnosis.</span>
-			</h2>
-			<a href="/" onclick="predict()">Return</a>
+			<div class="content">
+				<h2 class="secondTitle tremble" id="results">
+					<span class="blueSpan">It seems there is a </span><span class="redSpan">risk of heart attack.</span>
+				</h2>
+				<h2 class="advice">
+					<span class="blueSpan">This is an AI-powered tool, it is highly recommended that users consult a doctor or healthcare professional for an accurate diagnosis.</span>
+				</h2>
+			</div>
+			<a class="retButton" href="/" onclick="">Return</a>
 		</article>
 		<article class="imgArticle">
 			<img src="../assets/img/heart.png" alt="heart">

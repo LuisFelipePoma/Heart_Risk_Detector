@@ -37,7 +37,7 @@ header a{
 
 .blueSpan:hover{
   color: #E93474;
-  transition: 0.5s;
+  transition: 0.3;
 }
 
 .redSpan{
@@ -47,7 +47,7 @@ header a{
 
 .redSpan:hover{
   color: #3992D5;
-  transition: 0.5s;
+  transition: 0.3;
 }
 
 .imgArticle{
@@ -63,6 +63,7 @@ header a{
   border-radius: 1rem;
   animation: increase 1s infinite;
 }
+
 
 @keyframes increase{
   0%{
@@ -116,13 +117,12 @@ input[type="submit"]{
   background-color: #E93474;
   color:#fff;
   border-color:white;
-  transition: 1s;
+  transition: 0.5s;
 }
 input[type="submit"]:hover{
-  transition: 1s;
+  transition: 0.3;
   background-color:#3992D5;
   color:#fff;
-  animation: increase 1s;
 }
 footer{
   margin-top: 2rem;
@@ -133,11 +133,11 @@ footer p{
 }
 footer p a{
   color: #3992D5;
-  transition: 1s;
+  transition: 0.5s;
 }
 footer p a:hover{
   color:#E93474;
-  transition: 1s;
+  transition: 0.3;
 }
 
 @media (width <= 662px){
