@@ -17,9 +17,9 @@
 			<a href="/"><span class="blueSpan">Heart</span><span class="redSpan">Guard</span></a>
 		</h1>
 		<div class="algButtons">
-			<a class="alg" href="/" onclick="">Perceptron</a>
-			<a class="alg" href="/" onclick="">Naive Bayes</a>
-			<a class="alg" href="/" onclick="">CNN</a>
+			<a class="alg" onclick="showPredict(this)">Perceptron</a>
+			<a class="alg" onclick="showPredict(this)">Naive Bayes</a>
+			<a class="alg" onclick="showPredict(this)">CNN</a>
 		</div>
 	</header>
 	<section class="mainSec">
@@ -29,10 +29,11 @@
 			</h2>
 			<div class="content">
 				<h2 class="secondTitle tremble" id="results">
-					<span class="blueSpan">It seems there is a </span><span class="redSpan">risk of heart attack.</span>
+					
 				</h2>
 				<h2 class="advice">
-					<span class="blueSpan">This is an AI-powered tool, it is highly recommended that users consult a doctor or healthcare professional for an accurate diagnosis.</span>
+					<span class="blueSpan">This is an AI-powered tool, it is highly recommended that users consult a
+						doctor or healthcare professional for an accurate diagnosis.</span>
 				</h2>
 			</div>
 			<a class="retButton" href="/" onclick="">Return</a>
@@ -42,7 +43,7 @@
 		</article>
 	</section>
 
-	<script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js" defer></script>
 	<script src="../assets/js/results.js"></script>
 </body>
